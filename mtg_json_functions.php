@@ -114,26 +114,5 @@
         $db->commit(); # Enregistre les dernières cartes restantes dans le buffer
         return $urlImageLastCardsSaved;
     }
-
-    # Retourne un tableau avec données de la base locale nécessaires à l'affichage des cartes 
-    function getMyCollection($nbLimitCard)
-    {
-        # Connexion à la base de données locale avec mySQL et les identifiants utilisateurs configurés au préalable dans phpMyAdmin (onglet Utilisateurs)
-        $mysql_user = 'root';
-        $mysql_password = 'toor';  
-        $results = null;
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=mtg_project', $mysql_user, $mysql_password); # Création de l'objet représentant la BDD, on passe les identifiants en paramètres
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); # Définit le mode exception sur cette base de données (utilisation du bloc try/catch)
-
-            $selectQuery = "SELECT nom, type, urlImage FROM cartes LIMIT {$nbLimitCard}";
-            $results = $db->query($selectQuery);
-
-        } catch (Exception $exception) {
-            echo "Erreur lors de la connexion à la base de données mtg_project : " . $exception->getMessage() . "<br>"; # On affiche l'erreur et on arrête l'exécution du code du script
-            return null;
-        }        
-        return $results;
-    }
  
 ?>

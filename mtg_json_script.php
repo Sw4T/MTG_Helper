@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="collection.css">
 		<title>MTGJSON Database Script</title>
 	</head>
 	<body>
@@ -31,7 +32,7 @@
 			$keys = getExtensionsCodesFromFormat($format);
 			
 			# Récupérer les informations des cartes pour chaque extension dont on a précédemment récupéré les codes
-			echo "<b>Récupération des données JSON - Informations des cartes de chaque extension du {$format} ...</b><br><br>";
+			echo "<b>Récupération des données JSON - Informations des cartes pour {$parameters['MAX_EXTENSIONS']} extension(s) du format {$format} ...</b><br><br>";
 			$url = ''; # Chaîne de caractères qui représentera l'URL de chaque extension
 			$nbExtensionsSaved = 0; # Notre curseur pour savoir combien d'extensions ont déjà été sauvegardés
 			$urlImageLastCardsSaved = array(); # Tableau qui contient les url des illustrations de cartes allant être enregistrées			
@@ -43,7 +44,7 @@
 					break; # Si on atteint le max d'extensions qui ont été parcourus, on arrête la boucle
 				} 
 				else {			
-					echo "<b>Sauvegarde de toutes les cartes pour l'extension de code " . $extensionCode . "</b><br><br>";
+					echo "<b>Sauvegarde de toutes les cartes pour l'extension de code " . $extensionCode . "</b><br>";
 
 					$url = 'https://mtgjson.com/api/v5/' . $extensionCode . '.json'; # L'URL change à chaque code d'extension dans la boucle				
 					$pageContent = file_get_contents($url);
@@ -56,7 +57,7 @@
 					if ($parameters["SHOW_CARD_IMAGE"] == true && $urlImageLastCardsSaved != null) 
 					{
 						foreach ($urlImageLastCardsSaved as $urlImage) {
-							echo "<img src=\"https://api.scryfall.com/cards/{$urlImage}?format=image\" alt=\"IMG\" style=\"width: 5%; height: 5%; margin: 1px;\">";										
+							echo "<img src=\"https://api.scryfall.com/cards/{$urlImage}?format=image\" alt=\"IMG\">";										
 						}
 					}							
 				}
