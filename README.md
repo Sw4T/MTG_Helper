@@ -1,5 +1,5 @@
 # MTG_Helper
-Fichiers PHP/HTML/SQL d'aide pour le MTG_Project by Polo®
+Fichiers PHP/HTML/SQL/JavaScript d'aide pour le MTG_Project by Polo®
 
 ## Installation & setup
 - Cloner le repo dans le dossier **www** du serveur Apache/WAMP
