@@ -10,4 +10,4 @@ Fichiers PHP/HTML/SQL d'aide pour le MTG_Project by Polo®
 
 **mtg_collection.php** permet de consulter sa collection locale en utilisant de filtres
 
-**mtg_animate.php** est une page sandbox pour tester des animations sur des cartes de la base locale
+**mtg_animate.html** est une page sandbox pour tester des animations sur des cartes de la base locale
