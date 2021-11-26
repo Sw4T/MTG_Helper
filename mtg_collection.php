@@ -17,13 +17,13 @@
                 let colorFilter;
 
                 if (checkbox.name == 'creature') {
-                    colorFilter = '#E8272C'; // Rouge
+                    colorFilter = '#D5D10F'; 
                 } else if (checkbox.name == 'instant') {
-                    colorFilter = '#3399FF'; // Bleu
+                    colorFilter = '#3399FF'; 
                 } else if (checkbox.name == 'sorcery') {
-                    colorFilter = '#00CC00'; // Vert
+                    colorFilter = '#00CC00'; 
                 } else if (checkbox.name == 'artifact') {
-                    colorFilter = '#808080'; // Gris
+                    colorFilter = '#853966'; 
                 }
 
                 // On modifie l'attribut CSS de tout nos éléments en fonction de si la checkbox a été cochée ou décochée
@@ -80,7 +80,7 @@
 
         <!-- Filtres de sélection via checkbox -->
         <div class="filtres">
-            <label for=".creature" style="color: #E8272C;"><b>Filtre Créature :</b></label>
+            <label for=".creature" style="color: #D5D10F;"><b>Filtre Créature :</b></label>
             <input type="checkbox" id=".creature" name="creature" onchange=setFilterSelection(this)>
 
             <label for=".instant" style="color: #3399FF;"><b>Filtre Ephémère :</b></label>
@@ -89,7 +89,7 @@
             <label for=".sorcery" style="color: #00CC00;"><b>Filtre Rituel :</b></label>
             <input type="checkbox" id=".sorcery" name="sorcery" onchange=setFilterSelection(this)>
 
-            <label for=".artifact" style="color: #808080;"><b>Filtre Artefact : </b></label>
+            <label for=".artifact" style="color: #853966;"><b>Filtre Artefact : </b></label>
             <input type="checkbox" id=".artifact" name="artifact" onchange=setFilterSelection(this)>
         </div>
         <br><br>
@@ -97,7 +97,7 @@
         <!-- div qui contient toutes les cartes affichées pour l'extension courante -->
         <div id="collection">
             <?php
-                $collection = getMyCollection(250); # On récupère les 250 premières cartes de la collection (table cartes)
+                getMyCollection(250); # On récupère les 250 premières cartes de la collection (table cartes)
             ?>
         </div>      
 	</body>

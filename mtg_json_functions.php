@@ -59,8 +59,8 @@
             $fixedManaText = $card->manaCost;
 
             if (isset($card->power) && isset($card->toughness)) { # Cas particulier pour les cartes créatures 
-                $fixedPower = str_replace("*", "0", $card->power);
-                $fixedToughness = str_replace("*", "0", $card->toughness);
+                $fixedPower = str_replace("*", "-1", $card->power);
+                $fixedToughness = str_replace("*", "-1", $card->toughness);
             }
         } 
         else if (isset($card->type)) # Carte terrain
@@ -100,7 +100,7 @@
                 # On concatène la base de notre requêtes SQL (structure de table) avec la chaîne de caractères des valeurs de la carte
                 $finalQuery = $sqlInsertCard . getSQLStringCardValues($card, $extensionCode);
                 $db->exec($finalQuery); # On execute l'insertion de la carte courante de la boucle
-                $nbCardsSaved +=1; # Allez hop +1 dans la base
+                $nbCardsSaved += 1; # Allez hop +1 dans la base
 
                 if ($nbCardsSaved == $maxInsertPerQuery) { # Si on atteint le max d'insertions par requête SQL défini dans le formulaire					
                     $db->commit(); # Enregistre la requête dans la base de données
